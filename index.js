@@ -1,5 +1,5 @@
-const getTextData = require('./getTextData')
-const parseDataForAllFiles = require('./parseTextData')
+const getTextData = require('./src/getTextData')
+const parseDataForAllFiles = require('./src/parseTextData')
 
 const main = async () => {
     await getTextData()

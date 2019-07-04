@@ -2,7 +2,7 @@ const fs = require('fs').promises
 const path = require('path')
 const r = require('ramda')
 const { readFile } = require('./utils')
-const SPLITS_MAPPING = require('./constants/splits')
+const SPLITS_MAPPING = require('../constants/splits')
 
 const getPath = r.curry((ext, key) => `./${ext}/${key}.${ext}`)
 
