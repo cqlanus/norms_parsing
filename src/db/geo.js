@@ -14,7 +14,7 @@ const awsConfig = {
 AWS.config.update(awsConfig);
 
 const convertToAttributeObject = item => ({
-    RangeKeyValue: { S: uuid.v4() }, // Use this to ensure uniqueness of the hash/range pairs.
+    RangeKeyValue: { S: item.id }, // Use this to ensure uniqueness of the hash/range pairs.
     GeoPoint: {
         latitude: item.latitude,
         longitude: item.longitude
@@ -29,7 +29,7 @@ const wait = (waitTime = 1000) => new Promise((res) => setInterval(res, waitTime
 
 class DynamoGeoManager {
     constructor() {
-        this.ddb = new AWS.DynamoDB({ endpoint: 'http://localhost:8000' });
+        this.ddb = new AWS.DynamoDB({ apiVersion: 'latest' });
         this.config = new ddbGeo.GeoDataManagerConfiguration(this.ddb, 'Stations');
         // const docClient = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
         
@@ -102,10 +102,10 @@ class DynamoGeoManager {
 const main = async () => {
     try {
         const manager = new DynamoGeoManager()
-        await manager.createTable()
-        await manager.loadData()
-        await manager.queryData()
-        await manager.deleteTable()
+        // await manager.createTable()
+        // await manager.loadData()
+        // await manager.queryData()
+        // await manager.deleteTable()
 
     } catch (error) {
         console.log({error})
