@@ -1,5 +1,6 @@
 {
   "name": "norms_parse",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,8 +11,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "firebase-admin": "^8.2.0",
+    "aws-amplify": "^1.1.32",
+    "aws-sdk": "^2.497.0",
+    "dotenv": "^8.0.0",
+    "dynamodb-geo": "^0.4.0",
     "node-fetch": "^2.6.0",
-    "ramda": "^0.26.1"
+    "ramda": "^0.26.1",
+    "uuid": "^3.3.2"
   }
 }

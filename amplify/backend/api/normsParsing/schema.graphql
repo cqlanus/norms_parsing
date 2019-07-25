@@ -1,0 +1,40 @@
+type Todo @model {
+  id: ID!
+  name: String!
+  description: String
+}
+
+type Station @model {
+  id: ID!
+  stationId: String
+  latitude: String
+  longitude: String
+  elevation: String
+  state: String
+  name: String
+  gsnFlag: String
+  hcnFlag: String
+  wmoId: String
+  metohd: String
+  zip: Zip @connection(name: "StationZip")
+  dailyMaxTemp: [DailyMaxTemp] @connection(name: "StationMaxTemp")
+}
+
+type Zip @model {
+  id: ID!
+  station: Station @connection(name: "StationZip")
+  zip: String
+  city: String
+}
+
+type DailyValue {
+  flag: String
+  value: [Float]
+}
+
+type DailyMaxTemp @model {
+  id: ID!
+  station: Station @connection(name: "StationMaxTemp")
+  month: String
+  values: [DailyValue]
+}

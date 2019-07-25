@@ -1,0 +1,4 @@
+{
+    "AppSyncApiName": "normsParsing",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST"
+}

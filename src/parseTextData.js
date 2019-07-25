@@ -85,7 +85,7 @@ const parseDataForTextFile = async ([key, mapping]) => {
 
 const parseDataForAllFiles = async () => {
     const entries = Object.entries(SPLITS_MAPPING)
-    const processingEntries = entries.map(getDataForTextFile)
+    const processingEntries = entries.map(parseDataForTextFile)
     await Promise.all(processingEntries)
 }
 
